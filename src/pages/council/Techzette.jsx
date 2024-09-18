@@ -1,0 +1,286 @@
+import React, { lazy } from "react";
+import { Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import { Fancybox } from "@fancyapps/ui";
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
+import "./Inaug.css";
+import "./event.css";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
+import { EffectCoverflow, Pagination, Autoplay, Zoom } from "swiper/modules";
+
+import Navbar from "./Nav";
+import Footer from "./Footer";
+import "./techzette.css";
+
+const Techzette = () => {
+  React.useEffect(() => {
+    Fancybox.bind("[data-fancybox]", {
+      Thumbs: false,
+      Toolbar: {
+        enabled: false,
+      },
+      on: {
+        init: () => {
+          const swiper = document.querySelector(".swiper").swiper;
+          swiper.autoplay.pause();
+        },
+        done: () => {
+          const swiper = document.querySelector(".swiper").swiper;
+          const fancybox = Fancybox.getInstance();
+          const index = fancybox.getSlide().index;
+          swiper.slideTo(index);
+          swiper.autoplay.pause();
+        },
+        destroy: () => {
+          const swiper = document.querySelector(".swiper").swiper;
+          swiper.autoplay.run();
+        },
+      },
+    });
+
+    return () => {
+      Fancybox.destroy();
+    };
+  }, []);
+
+  return (
+    <>
+      <main>
+        <video
+          style={{
+            position: "fixed",
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            zIndex: 1,
+          }}
+          autoPlay
+          loop
+          muted
+        >
+          <source src="../img/bg_video.mp4" type="video/mp4" />
+        </video>
+
+        <header>
+          <Navbar />
+        </header>
+
+        <h1 className="text-center text-white text-decoration-underline p-5">
+          NSDC - TECHZETTE
+        </h1>
+
+        <div id="tranding">
+          <Swiper
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+            modules={[Navigation, EffectCoverflow, Pagination, Autoplay, Zoom]}
+            className="swiper tranding-slider"
+            spaceBetween={50}
+            slidesPerView={3}
+            navigation
+            effect={"coverflow"}
+            loop={true}
+            centeredSlides={true}
+            coverflowEffect={{
+              rotate: 0,
+              stretch: 0,
+              depth: 100,
+              modifier: 2.5,
+            }}
+            autoplay={{
+              delay: 13000,
+              disableOnInteraction: false,
+            }}
+            breakpoints={{
+              320: {
+                width: 320,
+                slidesPerView: 1,
+              },
+
+              640: {
+                width: 640,
+                slidesPerView: 1,
+              },
+
+              768: {
+                width: 768,
+                slidesPerView: 1,
+              },
+
+              820: {
+                width: 820,
+                slidesPerView: 3,
+              },
+
+              1024: {
+                slidesPerView: 3,
+              },
+            }}
+          >
+            {" "}
+            <div className="swiper-wraper">
+              <SwiperSlide className="tranding-slide">
+                <div className="tranding-slide-img ">
+                  <video
+                    id="vid"
+                    data-fancybox="images"
+                    src="../img/events/TechZette/TechZette_1.mp4"
+                    controls
+                  ></video>
+                </div>
+              </SwiperSlide>
+              {/* Add other slides here */}
+              {/* Example of an image slide: */}
+              <SwiperSlide className="tranding-slide">
+                <div className="tranding-slide-img">
+                  <img
+                    data-fancybox="images"
+                    src="../img/events/TechZette/TechZette_2.jpg"
+                    alt="Tranding"
+                    loading="lazy"
+                  />
+                </div>
+              </SwiperSlide>
+
+              <SwiperSlide className="tranding-slide">
+                <div class="swiper-slide tranding-slide">
+                  <div class="tranding-slide-img">
+                    <img
+                      data-fancybox="images"
+                      src="../img/events/TechZette/TechZette_3.jpg"
+                      alt="Tranding"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide className="tranding-slide">
+                <div class="swiper-slide tranding-slide">
+                  <div class="tranding-slide-img ">
+                    <img
+                      data-fancybox="images"
+                      src="../img/events/TechZette/TechZette_4.jpg"
+                      alt="Tranding"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide className="tranding-slide">
+                <div class="swiper-slide tranding-slide">
+                  <div class="tranding-slide-img ">
+                    <img
+                      data-fancybox="images"
+                      src="../img/events/TechZette/TechZette_5.jpg"
+                      alt="Tranding"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+              </SwiperSlide>
+            </div>
+          </Swiper>
+        </div>
+
+        <div className="event-container">
+          <div className="event-header">
+            <div className="event-timing">
+              <p>
+                <span>
+                  📅 Date:
+                  <span className="underline">14/09/2023</span>
+                </span>
+              </p>
+              <p>
+                <span>
+                  ⏰ Time:
+                  <span className="underline">10:30 AM - 12:30 PM</span>
+                </span>
+              </p>
+            </div>
+          </div>
+          <div className="event-content">
+            <div className="event-description">
+              <h2>About</h2>
+              <p>
+                The VCET TechZette - विसीईटी ज्ञानपत्रa
+                <a target="_blank" href="https://www.techz.vcet.edu.in">
+                  (www.techz.vcet.edu.in)
+                </a>
+                , a dynamic technical blog, serves as a digital hub for
+                insightful discourse, featuring a plethora of technical articles
+                contributed by esteemed faculty members, subject matter experts,
+                and the ingenious endeavors of students ranging from the second
+                to final year. In a distinctive inauguration event under the
+                Department of Artificial Intelligence and Data Science at
+                Vidyavardhini's College of Engineering and Technology (VCET),
+                with Chief Guest Mr. Rahul Mhatre, the unveiling of this
+                specialized platform was a momentous occasion marked by eager
+                anticipation and dynamic exchange. Students, faculty, and
+                distinguished guests converged to herald the introduction of
+                this innovative technical blog. Through TechZette, contributors
+                embark on a journey to share their technical expertise,
+                pioneering insights, and actively engage with the broader
+                community on intricate topics encompassing AI, data science, and
+                beyond. This event underscored the college's unwavering
+                commitment to fostering a culture of collaborative learning and
+                extending intellectual discourse beyond conventional boundaries.
+                As the inaugural posts went live, it marked the commencement of
+                an enriching journey, poised to propel understanding and
+                catalyze further exploration in the ever-evolving realms of
+                technology and innovation.
+              </p>
+            </div>
+            <div className="event-highlights">
+              <h2>Highlights</h2>
+              <ul>
+                <li>
+                  Event: Inauguration of VCET TechZette - विसीईटी ज्ञानपत्र
+                  <a target="_blank" href="https://www.techz.vcet.edu.in">
+                    (www.techz.vcet.edu.in)
+                  </a>
+                </li>
+                <li>Chief Guest: Mr. Rahul Mhatre</li>
+                <li>
+                  Key Highlights:
+                  <ul>
+                    <li>
+                      Launched a dynamic technical blog featuring technical
+                      articles from faculty, experts, and students
+                    </li>
+                    <li>
+                      Provides a platform for sharing expertise, insights, and
+                      fostering collaborative learning
+                    </li>
+                    <li>
+                      Covers topics in AI, data science, and other technical
+                      areas
+                    </li>
+                    <li>
+                      Marks the college's commitment to promoting intellectual
+                      discourse and exploration of technology
+                    </li>
+                    <li>
+                      Inaugural posts went live, commencing an enriching journey
+                      into the realms of innovation
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <Footer />
+    </>
+  );
+};
+
+export default Techzette;
