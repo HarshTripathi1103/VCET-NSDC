@@ -4,7 +4,6 @@ import Landing from "./pages/council/IEvents";
 import Contact from "./pages/council/Contact";
 import NSDCInauguration from "./pages/council/Inaugration";
 import TechBlitz from "./pages/council/TechBlitz";
-import Oscillation from "./pages/council/Oscillation";
 import Vnps from "./pages/council/Vnps";
 import Logo from "./pages/council/logo";
 import Nvidia from "./pages/council/Nvidia";
@@ -12,6 +11,8 @@ import Product from "./pages/council/Product";
 import PowerBi from "./pages/council/PowerBi";
 import Techzette from "./pages/council/Techzette";
 import NewCard from "./pages/council/NewCard";
+import Oscillation from "./pages/council/Oscillation";
+
 
 
 function App() {
@@ -33,6 +34,8 @@ function App() {
         <Route path="/vnps" element={<Vnps/>}/>
         <Route path="/oscillation" element={<Oscillation/>}/>
         <Route path="/logo" element={<Logo/>}/>
+
+
       </Routes>
     </BrowserRouter>
     </>

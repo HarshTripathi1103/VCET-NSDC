@@ -14,37 +14,16 @@ import { EffectCoverflow, Pagination, Autoplay, Zoom } from "swiper/modules";
 import Navbar from "./Nav";
 import Footer from "./Footer";
 import "./techzette.css";
+import CoverflowCarousel from "./CoverflowCarousel";
 
 const Techzette = () => {
-  React.useEffect(() => {
-    Fancybox.bind("[data-fancybox]", {
-      Thumbs: false,
-      Toolbar: {
-        enabled: false,
-      },
-      on: {
-        init: () => {
-          const swiper = document.querySelector(".swiper").swiper;
-          swiper.autoplay.pause();
-        },
-        done: () => {
-          const swiper = document.querySelector(".swiper").swiper;
-          const fancybox = Fancybox.getInstance();
-          const index = fancybox.getSlide().index;
-          swiper.slideTo(index);
-          swiper.autoplay.pause();
-        },
-        destroy: () => {
-          const swiper = document.querySelector(".swiper").swiper;
-          swiper.autoplay.run();
-        },
-      },
-    });
-
-    return () => {
-      Fancybox.destroy();
-    };
-  }, []);
+   const techZetteGallery = [
+    { type: "video", src: "../img/events/TechZette/TechZette_1.mp4" },
+    { type: "image", src: "../img/events/TechZette/TechZette_2.jpg" },
+    { type: "image", src: "../img/events/TechZette/TechZette_3.jpg" },
+    { type: "image", src: "../img/events/TechZette/TechZette_4.jpg" },
+    { type: "image", src: "../img/events/TechZette/TechZette_5.jpg" },
+   ]
 
   return (
     <>
@@ -73,119 +52,8 @@ const Techzette = () => {
         </h1>
 
         <div id="tranding">
-          <Swiper
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-            modules={[Navigation, EffectCoverflow, Pagination, Autoplay, Zoom]}
-            className="swiper tranding-slider"
-            spaceBetween={50}
-            slidesPerView={3}
-            navigation
-            effect={"coverflow"}
-            loop={true}
-            centeredSlides={true}
-            coverflowEffect={{
-              rotate: 0,
-              stretch: 0,
-              depth: 100,
-              modifier: 2.5,
-            }}
-            autoplay={{
-              delay: 13000,
-              disableOnInteraction: false,
-            }}
-            breakpoints={{
-              320: {
-                width: 320,
-                slidesPerView: 1,
-              },
+            <CoverflowCarousel media={techZetteGallery}/>
 
-              640: {
-                width: 640,
-                slidesPerView: 1,
-              },
-
-              768: {
-                width: 768,
-                slidesPerView: 1,
-              },
-
-              820: {
-                width: 820,
-                slidesPerView: 3,
-              },
-
-              1024: {
-                slidesPerView: 3,
-              },
-            }}
-          >
-            {" "}
-            <div className="swiper-wraper">
-              <SwiperSlide className="tranding-slide">
-                <div className="tranding-slide-img ">
-                  <video
-                    id="vid"
-                    data-fancybox="images"
-                    src="../img/events/TechZette/TechZette_1.mp4"
-                    controls
-                  ></video>
-                </div>
-              </SwiperSlide>
-              {/* Add other slides here */}
-              {/* Example of an image slide: */}
-              <SwiperSlide className="tranding-slide">
-                <div className="tranding-slide-img">
-                  <img
-                    data-fancybox="images"
-                    src="../img/events/TechZette/TechZette_2.jpg"
-                    alt="Tranding"
-                    loading="lazy"
-                  />
-                </div>
-              </SwiperSlide>
-
-              <SwiperSlide className="tranding-slide">
-                <div class="swiper-slide tranding-slide">
-                  <div class="tranding-slide-img">
-                    <img
-                      data-fancybox="images"
-                      src="../img/events/TechZette/TechZette_3.jpg"
-                      alt="Tranding"
-                      loading="lazy"
-                    />
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide className="tranding-slide">
-                <div class="swiper-slide tranding-slide">
-                  <div class="tranding-slide-img ">
-                    <img
-                      data-fancybox="images"
-                      src="../img/events/TechZette/TechZette_4.jpg"
-                      alt="Tranding"
-                      loading="lazy"
-                    />
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide className="tranding-slide">
-                <div class="swiper-slide tranding-slide">
-                  <div class="tranding-slide-img ">
-                    <img
-                      data-fancybox="images"
-                      src="../img/events/TechZette/TechZette_5.jpg"
-                      alt="Tranding"
-                      loading="lazy"
-                    />
-                  </div>
-                </div>
-              </SwiperSlide>
-            </div>
-          </Swiper>
         </div>
 
         <div className="event-container">

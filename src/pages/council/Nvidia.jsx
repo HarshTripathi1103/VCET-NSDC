@@ -15,38 +15,18 @@ import "./event.css";
 import { Fancybox } from "@fancyapps/ui";
 import Navbar from "./Nav";
 import Footer from "./Footer";
+import CoverflowCarousel from "./CoverflowCarousel";
 
 const Nvidia = () => {
-  React.useEffect(() => {
-    Fancybox.bind("[data-fancybox]", {
-      Thumbs: false,
-      Toolbar: {
-        enabled: false,
-      },
-      on: {
-        init: () => {
-          const swiper = document.querySelector(".swiper").swiper;
-          swiper.autoplay.pause();
-        },
-        done: () => {
-          const swiper = document.querySelector(".swiper").swiper;
-          const fancybox = Fancybox.getInstance();
-          const index = fancybox.getSlide().index;
-          swiper.slideTo(index);
-          swiper.autoplay.pause();
-        },
-        destroy: () => {
-          const swiper = document.querySelector(".swiper").swiper;
-          swiper.autoplay.run();
-        },
-      },
-    });
-
-    return () => {
-      Fancybox.destroy();
-    };
-  }, []);
-
+    const nvidiaGallery = [
+        { type: "image", src: "../img/events/nvidia/nvidia_1.jpg" },
+        { type: "image", src: "../img/events/nvidia/nvidia_2.jpg" },
+        { type: "image", src: "../img/events/nvidia/nvidia_3.jpg" },
+        { type: "image", src: "../img/events/nvidia/nvidia_4.jpg" },
+        { type: "image", src: "../img/events/nvidia/nvidia_5.jpg" },
+        { type: "image", src: "../img/events/nvidia/nvidia_6.jpg" },
+        { type: "image", src: "../img/events/nvidia/nvidia_7.jpg" },
+    ]
   return (
     <>
 
@@ -76,95 +56,7 @@ const Nvidia = () => {
         </h1>
 
         <div id="tranding">
-          <Swiper
-            modules={[Navigation, EffectCoverflow, Pagination, Autoplay, Zoom]}
-            className="tranding-slider"
-            spaceBetween={50}
-            slidesPerView={3}
-            navigation
-            loop={true}
-            effect={"coverflow"}
-            grabCursor={true}
-            centeredSlides={true}
-            coverflowEffect={{
-              rotate: 0,
-              stretch: 0,
-              depth: 100,
-              modifier: 2.5,
-            }}
-          >
-            <SwiperSlide className="tranding-slide">
-              <div className="tranding-slide-img">
-                <img
-                  data-fancybox="images"
-                  src="../img/events/nvidia/nvidia_1.jpg"
-                  alt="Tranding"
-                  loading="lazy"
-                />
-              </div>
-            </SwiperSlide>
-            {/* Add other slides here */}
-            <SwiperSlide className="tranding-slide">
-              <div className="tranding-slide-img">
-                <img
-                  data-fancybox="images"
-                  src="../img/events/nvidia/nvidia_2.jpg"
-                  alt="Tranding"
-                  loading="lazy"
-                />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="tranding-slide">
-              <div className="tranding-slide-img">
-                <img
-                  data-fancybox="images"
-                  src="../img/events/nvidia/nvidia_3.jpg"
-                  alt="Tranding"
-                  loading="lazy"
-                />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="tranding-slide">
-              <div className="tranding-slide-img">
-                <img
-                  data-fancybox="images"
-                  src="../img/events/nvidia/nvidia_4.jpg"
-                  alt="Tranding"
-                  loading="lazy"
-                />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="tranding-slide">
-              <div className="tranding-slide-img">
-                <img
-                  data-fancybox="images"
-                  src="../img/events/nvidia/nvidia_5.jpg"
-                  alt="Tranding"
-                  loading="lazy"
-                />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="tranding-slide">
-              <div className="tranding-slide-img">
-                <img
-                  data-fancybox="images"
-                  src="../img/events/nvidia/nvidia_6.jpg"
-                  alt="Tranding"
-                  loading="lazy"
-                />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="tranding-slide">
-              <div className="tranding-slide-img">
-                <img
-                  data-fancybox="images"
-                  src="../img/events/nvidia/nvidia_7.jpg"
-                  alt="Tranding"
-                  loading="lazy"
-                />
-              </div>
-            </SwiperSlide>
-          </Swiper>
+           <CoverflowCarousel media={nvidiaGallery}/>
         </div>
 
         <div className="event-container">

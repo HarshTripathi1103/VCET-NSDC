@@ -129,17 +129,19 @@ p {
 }
 
 /* Main CSS */
-#bgVideo {
-  position: absolute;
+video#bgVideo1 {
+  position: fixed;
   right: 0;
   bottom: 0;
   width: auto;
   min-width: 100%;
   height: auto;
   min-height: 100%;
-  z-index: 99;
+  z-index: 10;
   background-size: cover;
 }
+
+
 
 .hero-title {
   display: flex;
@@ -895,7 +897,7 @@ ul.social-footer2 li a {
       margin-top: 0px;
     }
   }
-  /* .event-date {
+  .event-date {
     padding: 8px 15px 4px 15px;
   }
 
@@ -977,10 +979,10 @@ ul.social-footer2 li a {
   }
   .position-relative {
     .eventImg {
-      width: 100%; /* Adjust to 100% of the parent container's width */
-      height: auto; /* Maintain aspect ratio */
-      max-width: 125rem; /* Optional: Set a maximum width if needed */
-      max-height: 25rem; /* Optional: Set a maximum height if needed */
+      width: 100%;
+      height: auto;
+      max-width: 125rem;
+      max-height: 25rem;
       object-fit: cover;
       margin-top: -2rem;
       margin-left: -1.2rem;
@@ -993,17 +995,21 @@ ul.social-footer2 li a {
       padding: 0;
     }
   }
+
+
+
 }
 
 @media screen and (max-width: 480px) {
   .position-relative {
     .eventImg {
-      width: 100%; /* Adjust to 100% of the parent container's width */
-      height: 15rem; /* Maintain aspect ratio */
+      width: 85vw;
+      height: 15rem;
       max-width: 125rem;
       object-fit: cover;
       margin-top: -2rem;
       margin-left: -1.2rem;
+      margin-right: -2rem;
     }
 
     .font-size14 {
@@ -1017,8 +1023,36 @@ ul.social-footer2 li a {
   .events-date {
     display: flex;
     flex-direction: column;
-    height: 10vh;
+    height: 9vh;
     align-items: center;
     padding: 0 0 0;
   }
+
+  .container .p-3{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .evnt_title{
+    font-size: 1.4rem;
+  }
+
+  .p-3{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .eventsSection{
+    width:85vw;
+  }
+
+
+
+
+
+
 }

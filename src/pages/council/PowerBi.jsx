@@ -14,7 +14,8 @@ import { EffectCoverflow, Pagination, Autoplay } from "swiper/modules";
 // Assume these components are defined in separate files
 import Navbar from "./Nav";
 import Footer from "./Footer";
-import PhotoSwiper from "./EventSwiper";
+import CarouselComponent from "./Carousel";
+import CoverflowCarousel from "./CoverflowCarousel";
 
 const PowerBI = () => {
   const powerBiGallery = [
@@ -51,12 +52,16 @@ const PowerBI = () => {
           NSDC - POWER BI
         </h1>
 
-        <PhotoSwiper
+        {/* <PhotoSwiper
           style={{
             width: "10px",
           }}
           media={powerBiGallery}
-        />
+        /> */}
+        <div className="xl: mb-5">
+        <CoverflowCarousel
+        media={powerBiGallery}/>
+        </div>
 
         <div className="event-container">
           <div className="event-header">

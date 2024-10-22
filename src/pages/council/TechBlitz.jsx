@@ -1,75 +1,99 @@
-import React, { useState } from "react";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Zoom } from "swiper/modules";
+import {
+  Navigation,
+  EffectCoverflow,
+  Pagination,
+  Autoplay,
+  Zoom,
+} from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/zoom";
-import "swiper/css/pagination";
-import { Fancybox } from "@fancyapps/ui";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import "./Inaug.css";
 import "./event.css";
-import { EffectCoverflow, Pagination, Autoplay } from "swiper/modules";
-
-// Assume these components are defined in separate files
+import { Fancybox } from "@fancyapps/ui";
 import Navbar from "./Nav";
 import Footer from "./Footer";
+import CoverflowCarousel from "./CoverflowCarousel";
 
 const TechBlitz = () => {
+    const TechBlitzGallery = [
+        { type: "image", src: "../img/events/TechBlitz/TechBlitz_1.jpeg" },
+        { type: "video", src: "../img/events/TechBlitz/TechBlitz_img_1.mp4" },
+        { type: "image", src: "../img/events/TechBlitz/TechBlitz_img_2.png" },
+        { type: "image", src: "../img/events/TechBlitz/TechBlitz_img_3.png" },
+        { type: "image", src: "../img/events/TechBlitz/TechBlitz_img_4.png" },
+        { type: "image", src: "../img/events/TechBlitz/TechBlitz_img_5.png" },
+        { type: "image", src: "../img/events/TechBlitz/TechBlitz_img_6.png" },
+        { type: "image", src: "../img/events/TechBlitz/TechBlitz_img_7.png" },
+        { type: "image", src: "../img/events/TechBlitz/TechBlitz_img_8.png" },
+        { type: "image", src: "../img/events/TechBlitz/TechBlitz_img_9.png" },
+        { type: "image", src: "../img/events/TechBlitz/TechBlitz_img_10.png" },
+        { type: "image", src: "../img/events/TechBlitz/TechBlitz_img_11.png" },
+        { type: "image", src: "../img/events/TechBlitz/TechBlitz_img_12.png" },
+        { type: "image", src: "../img/events/TechBlitz/TechBlitz_img_13.png" },
+        { type: "image", src: "../img/events/TechBlitz/TechBlitz_img_14.png" },
+        { type: "image", src: "../img/events/TechBlitz/TechBlitz_img_15.png" },
+        { type: "image", src: "../img/events/TechBlitz/TechBlitz_img_16.png" },
+        { type: "image", src: "../img/events/TechBlitz/TechBlitz_img_17.png" },
+        { type: "image", src: "../img/events/TechBlitz/TechBlitz_img_18.png" },
+        { type: "image", src: "../img/events/TechBlitz/TechBlitz_img_19.png" },
+        { type: "image", src: "../img/events/TechBlitz/TechBlitz_img_20.png" },
+
+    ]
   React.useEffect(() => {
-    const setupFancybox = () => {
-      const isMobile = window.innerWidth <= 768; // Check if the screen width is mobile size
-      Fancybox.bind("[data-fancybox]", {
-        Thumbs: false,
-        Toolbar: {
-          enabled: false,
-          display: isMobile
-            ? ["close"] // Only close button for mobile
-            : ["zoom", "slideshow", "fullscreen", "download", "close"], // Full toolbar for larger screens
+    Fancybox.bind("[data-fancybox]", {
+      Thumbs: false,
+      Toolbar: {
+        enabled: false,
+      },
+      on: {
+        init: () => {
+          const swiper = document.querySelector(".swiper").swiper;
+          swiper.autoplay.pause();
         },
-        Image: {
-          zoom: !isMobile, // Disable zoom on mobile for a better experience
+        done: () => {
+          const swiper = document.querySelector(".swiper").swiper;
+          const fancybox = Fancybox.getInstance();
+          const index = fancybox.getSlide().index;
+          swiper.slideTo(index);
+          swiper.autoplay.pause();
         },
-        fullScreen: {
-          autoStart: !isMobile, // Disable fullscreen auto-start on mobile
+        destroy: () => {
+          const swiper = document.querySelector(".swiper").swiper;
+          swiper.autoplay.run();
         },
-        on: {
-          init: () => {
-            const swiper = document.querySelector(".swiper").swiper;
-            swiper.autoplay.pause();
-          },
-          done: () => {
-            const swiper = document.querySelector(".swiper").swiper;
-            const fancybox = Fancybox.getInstance();
-            const index = fancybox.getSlide().index;
-            swiper.slideTo(index);
-            swiper.autoplay.pause();
-          },
-          destroy: () => {
-            const swiper = document.querySelector(".swiper").swiper;
-            swiper.autoplay.run();
-          },
-          "Carousel.change": (fancybox, carousel, to, from) => {
-            const swiper = document.querySelector(".swiper").swiper;
-            swiper.slideTo(to);
-          },
-        },
-      });
-    };
-
-    setupFancybox(); // Run on mount
-
-    // Listen to window resize events to update Fancybox options dynamically
-    window.addEventListener("resize", setupFancybox);
+      },
+    });
 
     return () => {
       Fancybox.destroy();
-      window.removeEventListener("resize", setupFancybox);
     };
   }, []);
 
   return (
     <>
+      <div className="icon-bar">
+        <a target="_blank" href="mailto:nsdc@vcet.edu.in" className="gmail">
+          <i className="fa fa-envelope-o" aria-hidden="true"></i>
+        </a>
+        <a
+          target="_blank"
+          href="https://www.linkedin.com/in/vcet-nsdc"
+          className="linkedin"
+        >
+          <i className="fa fa-linkedin"></i>
+        </a>
+        <a
+          title="instagram"
+          target="_blank"
+          href="https://www.instagram.com/nsdc.vcet"
+        >
+          <i className="fa fa-instagram" aria-hidden="true"></i>
+        </a>
+      </div>
+
       <main>
         <video
           style={{
@@ -95,267 +119,7 @@ const TechBlitz = () => {
         </h1>
 
         <div id="tranding">
-          <Swiper
-            modules={[Navigation, EffectCoverflow, Pagination, Zoom, Autoplay]}
-            className="swiper tranding-slider"
-            spaceBetween={50}
-            slidesPerView={3}
-            navigation
-            effect={"coverflow"}
-            grabCursor={true}
-            centeredSlides={true}
-            loop={true}
-            observer={true}
-            observeParents={true}
-            zoom={true}
-            autoplay={{
-              delay: 13000,
-              disableOnInteraction: false,
-            }}
-            coverflowEffect={{
-              rotate: 0,
-              stretch: 0,
-              depth: 100,
-              modifier: 2.5,
-            }}
-            pagination={{
-              el: ".swiper-pagination",
-              clickable: true,
-            }}
-            lazy={{
-              loadPrevNext: true,
-              loadPrevNextAmount: 3,
-            }}
-            breakpoints={{
-              320: {
-                width: 320,
-                slidesPerView: 1,
-                coverflowEffect: {
-                  depth: 300,
-                },
-              },
-
-              640: {
-                width: 640,
-                slidesPerView: 1,
-              },
-
-              768: {
-                width: 768,
-                slidesPerView: 2,
-              },
-
-              1024: {
-                slidesPerView: 3,
-              },
-            }}
-          >
-            <div className="swiper-wrapper"></div>
-            <SwiperSlide className="swiper-slide tranding-slide">
-              <div className="tranding-slide-img">
-                <img
-                  data-fancybox="gallery"
-                  src="../img/events/TechBlitz/TechBlitz_img_3.png"
-                  alt="Tranding"
-                  loading="lazy"
-                />
-              </div>
-            </SwiperSlide>
-
-            <SwiperSlide className="tranding-slide">
-              <div class="swiper-slide tranding-slide">
-                <div class="tranding-slide-img ">
-                  <img
-                    data-fancybox="gallery"
-                    src="../img/events/TechBlitz/TechBlitz_img_4.png"
-                    alt="Tranding"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="tranding-slide">
-              <div class="swiper-slide tranding-slide">
-                <div class="tranding-slide-img ">
-                  <img
-                    data-fancybox="gallery"
-                    src="../img/events/TechBlitz/TechBlitz_img_5.png"
-                    alt="Tranding"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="tranding-slide">
-              <div class="swiper-slide tranding-slide">
-                <div class="tranding-slide-img ">
-                  <img
-                    data-fancybox="gallery"
-                    src="../img/events/TechBlitz/TechBlitz_img_6.png"
-                    alt="Tranding"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="trading-slider">
-              <div class="swiper-slide tranding-slide">
-                <div class="tranding-slide-img ">
-                  <img
-                    data-fancybox="gallery"
-                    src="../img/events/TechBlitz/TechBlitz_img_7.png"
-                    alt="Tranding"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="trading-slider">
-              <div class="swiper-slide tranding-slide">
-                <div class="tranding-slide-img ">
-                  <img
-                    data-fancybox="gallery"
-                    src="../img/events/TechBlitz/TechBlitz_img_9.png"
-                    alt="Tranding"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="trading-slider">
-              <div class="swiper-slide tranding-slide">
-                <div class="tranding-slide-img ">
-                  <img
-                    data-fancybox="gallery"
-                    src="../img/events/TechBlitz/TechBlitz_img_10.png"
-                    alt="Tranding"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            </SwiperSlide>
-
-            <SwiperSlide className="trading-slider">
-              <div class="swiper-slide tranding-slide">
-                <div class="tranding-slide-img ">
-                  <img
-                    data-fancybox="gallery"
-                    src="../img/events/TechBlitz/TechBlitz_img_11.png"
-                    alt="Tranding"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="trading-slider">
-              <div class="swiper-slide tranding-slide">
-                <div class="tranding-slide-img ">
-                  <img
-                    data-fancybox="gallery"
-                    src="../img/events/TechBlitz/TechBlitz_img_12.png"
-                    alt="Tranding"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="trading-slider">
-              <div class="swiper-slide tranding-slide">
-                <div class="tranding-slide-img ">
-                  <img
-                    data-fancybox="gallery"
-                    src="../img/events/TechBlitz/TechBlitz_img_13.png"
-                    alt="Tranding"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="trading-slider">
-              <div class="swiper-slide tranding-slide">
-                <div class="tranding-slide-img ">
-                  <img
-                    data-fancybox="gallery"
-                    src="../img/events/TechBlitz/TechBlitz_img_14.png"
-                    alt="Tranding"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="trading-slider">
-              <div class="swiper-slide tranding-slide">
-                <div class="tranding-slide-img ">
-                  <img
-                    data-fancybox="gallery"
-                    src="../img/events/TechBlitz/TechBlitz_img_15.png"
-                    alt="Tranding"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="trading-slider">
-              <div class="swiper-slide tranding-slide">
-                <div class="tranding-slide-img ">
-                  <img
-                    data-fancybox="gallery"
-                    src="../img/events/TechBlitz/TechBlitz_img_16.png"
-                    alt="Tranding"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="trading-slider">
-              <div class="swiper-slide tranding-slide">
-                <div class="tranding-slide-img ">
-                  <img
-                    data-fancybox="gallery"
-                    src="../img/events/TechBlitz/TechBlitz_img_17.png"
-                    alt="Tranding"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="trading-slider">
-              <div class="swiper-slide tranding-slide">
-                <div class="tranding-slide-img ">
-                  <img
-                    data-fancybox="gallery"
-                    src="../img/events/TechBlitz/TechBlitz_img_18.png"
-                    alt="Tranding"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="trading-slider">
-              <div class="swiper-slide tranding-slide">
-                <div class="tranding-slide-img ">
-                  <img
-                    data-fancybox="gallery"
-                    src="../img/events/TechBlitz/TechBlitz_img_19.png"
-                    alt="Tranding"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="trading-slider">
-              <div class="swiper-slide tranding-slide">
-                <div class="tranding-slide-img ">
-                  <img
-                    data-fancybox="gallery"
-                    src="../img/events/TechBlitz/TechBlitz_img_20.png"
-                    alt="Tranding"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            </SwiperSlide>
-          </Swiper>
+         <CoverflowCarousel media={TechBlitzGallery}/>
         </div>
 
         <div className="event-container">

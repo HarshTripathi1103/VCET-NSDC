@@ -9,7 +9,8 @@ import { EffectCoverflow, Pagination, Zoom } from "swiper/modules";
 // Assume these components are defined in separate files
 import Navbar from "./Nav";
 import Footer from "./Footer";
-import PhotoSwiper from "./EventSwiper";
+// import PhotoSwiper from "./EventSwiper";
+import CoverflowCarousel from "./CoverflowCarousel";
 
 const Product = () => {
   const productGallery = [
@@ -49,181 +50,10 @@ const Product = () => {
         <h1 className="text-center text-white text-decoration-underline p-5">
           NSDC - PRODUCT
         </h1>
+          <div className="mb-5">
+          <CoverflowCarousel media={productGallery} />
+          </div>
 
-        <PhotoSwiper media={productGallery} />
-
-        {/* <div id="tranding">
-          <Swiper
-            modules={[Navigation,EffectCoverflow,Pagination,Autoplay,Zoom]}
-            className="tranding-slider"
-            spaceBetween={50}
-            slidesPerView={3}
-            navigation
-            autoplay={{
-                delay: 13000,
-                disableOnInteraction: false,
-              }}
-            loop={true}
-            effect={'coverflow'}
-            grabCursor={true}
-            centeredSlides={true}
-            coverflowEffect={{
-              rotate: 0,
-              stretch: 0,
-              depth: 100,
-              modifier: 2.5,
-
-            }}
-
-            breakpoints={{
-
-                320:{
-                    width: 320,
-                    slidesPerView: 3,
-                    centeredSlides:true
-
-                },
-
-                640: {
-                  width: 640,
-                  slidesPerView: 1,
-                },
-
-                768: {
-                  width: 768,
-                  slidesPerView: 1,
-                },
-
-                1024: {
-                    slidesPerView: 3,
-                },
-
-              }}
-
-
-          >
-            <SwiperSlide className="tranding-slide">
-              <div className="tranding-slide-img ">
-                <video
-                  id="vid"
-                  data-fancybox="images"
-                  src="../img/events/products/product_1.mp4"
-                  controls
-                ></video>
-              </div>
-            </SwiperSlide>
-
-            <SwiperSlide className="tranding-slide">
-              <div className="tranding-slide-img">
-                <img
-                  className=''
-                  data-fancybox="images"
-                   src="../img/events/products/product_2.png"
-                  alt="Tranding"
-                  loading="lazy"
-                />
-              </div>
-            </SwiperSlide>
-
-            <SwiperSlide className="tranding-slide">
-            <div class="swiper-slide tranding-slide">
-                            <div class="tranding-slide-img ">
-                                <img
-                                    data-fancybox="images"
-                                    src="../img/events/products/product_3.png"
-                                    alt="Tranding"
-                                    loading="lazy"
-                                />
-                            </div>
-                        </div>
-            </SwiperSlide>
-            <SwiperSlide className="tranding-slide">
-            <div class="swiper-slide tranding-slide">
-                            <div class="tranding-slide-img ">
-                                <img
-                                    data-fancybox="images"
-                                     src="../img/events/products/product_4.png"
-                                    alt="Tranding"
-                                    loading="lazy"
-                                />
-                            </div>
-                        </div>
-            </SwiperSlide>
-            <SwiperSlide className="tranding-slide">
-            <div class="swiper-slide tranding-slide">
-                            <div class="tranding-slide-img ">
-                                <img
-                                    data-fancybox="images"
-                                    src="../img/events/products/product_5.png"
-                                    alt="Tranding"
-                                    loading="lazy"
-                                />
-                            </div>
-                        </div>
-            </SwiperSlide>
-            <SwiperSlide className="trading-slider">
-            <div class="swiper-slide tranding-slide">
-                            <div class="tranding-slide-img ">
-                                <img
-                                    data-fancybox="images"
-                                    src="../img/events/products/product_6.png"
-                                    alt="Tranding"
-                                    loading="lazy"
-                                />
-                            </div>
-                        </div>
-            </SwiperSlide>
-            <SwiperSlide className="trading-slider">
-            <div class="swiper-slide tranding-slide">
-                            <div class="tranding-slide-img ">
-                                <img
-                                    data-fancybox="images"
-                                    src="../img/events/products/product_7.png"
-                                    alt="Tranding"
-                                    loading="lazy"
-                                />
-                            </div>
-                        </div>
-            </SwiperSlide>
-            <SwiperSlide className="trading-slider">
-            <div class="swiper-slide tranding-slide">
-                            <div class="tranding-slide-img ">
-                                <img
-                                    data-fancybox="images"
-                                    src="../img/events/products/product_8.png"
-                                    alt="Tranding"
-                                    loading="lazy"
-                                />
-                            </div>
-                        </div>
-            </SwiperSlide>
-
-            <SwiperSlide className="trading-slider">
-            <div class="swiper-slide tranding-slide">
-                            <div class="tranding-slide-img ">
-                                <img
-                                    data-fancybox="images"
-                                    src="../img/events/products/product_9.png"
-                                    alt="Tranding"
-                                    loading="lazy"
-                                />
-                            </div>
-                        </div>
-            </SwiperSlide>
-            <SwiperSlide className="trading-slider">
-            <div class="swiper-slide tranding-slide">
-                            <div class="tranding-slide-img ">
-                                <img
-                                    data-fancybox="images"
-                                    src="../img/events/products/product_10.png"
-                                    alt="Tranding"
-                                    loading="lazy"
-                                />
-                            </div>
-                        </div>
-            </SwiperSlide>
-          </Swiper>
-        </div> */}
 
         <div className="event-container">
           <div className="event-header">

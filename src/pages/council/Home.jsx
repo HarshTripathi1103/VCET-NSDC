@@ -1,11 +1,17 @@
 import React from 'react';
-import styled from 'styled-components'
+import styled, {createGlobalStyle} from 'styled-components'
 import Navbar from './Nav';
 import Footer from './Footer';
+import './Homestyle.css'
+
+
+
+
 
 const Home = () => {
   return (
     <>
+    <ResponsiveStyles />
       <IconBar>
         <a target="_blank" href="mailto:nsdc@vcet.edu.in" className="gmail">
           <i className="fa fa-envelope-o" aria-hidden="true"></i>
@@ -282,5 +288,141 @@ const AboutContent = styled.div`
 const About2Header = styled(AboutHeader)``;
 
 const About2Content = styled(AboutContent)``;
+
+
+
+
+
+
+
+
+
+const ResponsiveStyles = createGlobalStyle`
+  @media (max-width: 1024px) {
+    ${HomeTitleText} {
+      font-size: 1.8rem;
+    }
+
+    ${HomeTitleSubtext} {
+      font-size: 1.1rem;
+    }
+
+    ${HomeDriverText} {
+      font-size: 1rem;
+    }
+
+    ${HomeButton} button {
+      font-size: 1.4rem;
+    }
+
+    ${AboutHeader} h2, ${About2Header} h2 {
+      font-size: 30px;
+    }
+
+    ${AboutContent} p, ${About2Content} p {
+      font-size: 18px;
+      padding: 0 20px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    ${IconBar} {
+      display: none;
+    }
+
+    ${HeroImgWrapper} {
+      max-width: 12rem;
+    }
+
+    ${HomeTitleText} {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    ${HomeTitleSubtext} {
+      font-size: 1rem;
+    }
+
+    ${HomeDriverText} {
+      font-size: 0.9rem;
+      margin: 2rem 0;
+    }
+
+    ${HomeButton} button {
+      font-size: 1.2rem;
+      padding: 0.3rem 1rem;
+    }
+
+    ${OuterDiv} {
+      height: 180px;
+    }
+
+    ${InnerDiv} {
+      top: -80px;
+    }
+
+    ${AboutHeader} h2, ${About2Header} h2 {
+      font-size: 24px;
+    }
+
+    ${AboutContent} p, ${About2Content} p {
+      font-size: 16px;
+      line-height: 1.4;
+    }
+
+    ${AboutSection} {
+      padding-bottom: 100px !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    ${HeroImgWrapper} {
+      max-width: 10rem;
+      margin-top: 2rem;
+    }
+
+    ${HomeTitleText} {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    ${HomeTitleSubtext} {
+      font-size: 0.9rem;
+    }
+
+    ${HomeDriverText} {
+      font-size: 0.8rem;
+      margin: 1.5rem 0;
+    }
+
+    ${HomeButton} button {
+      font-size: 1rem;
+      padding: 0.2rem 0.8rem;
+    }
+
+    ${OuterDiv} {
+      height: 150px;
+    }
+
+    ${InnerDiv} {
+      top: -60px;
+    }
+
+    ${AboutHeader} h2, ${About2Header} h2 {
+      font-size: 20px;
+    }
+
+    ${AboutContent} p, ${About2Content} p {
+      font-size: 14px;
+      padding: 0 15px;
+    }
+
+    ${AboutSection} {
+      padding-bottom: 80px !important;
+    }
+  }
+`;
+
+
 
 export default Home;

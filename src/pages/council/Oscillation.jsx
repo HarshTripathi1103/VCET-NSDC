@@ -1,21 +1,14 @@
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import {
-  Navigation,
-  EffectCoverflow,
-  Pagination,
-  Autoplay,
-  Zoom,
-} from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import "./Inaug.css";
 import "./event.css";
-import { Fancybox } from "@fancyapps/ui";
 import Navbar from "./Nav";
 import Footer from "./Footer";
-import PhotoSwiper from "./EventSwiper";
+// import PhotoSwiper from "./EventSwiper";
+// import SlickSLide from "./SlickSLide";
+import CoverflowCarousel from "./CoverflowCarousel"
 
 const Oscillation = () => {
   const osiGallery = [
@@ -30,35 +23,6 @@ const Oscillation = () => {
     { type: "image", src: "../img/events/oscillation/osc3 (7).jpg" },
     { type: "image", src: "../img/events/oscillation/osc3 (8).jpg" },
   ];
-  React.useEffect(() => {
-    Fancybox.bind("[data-fancybox]", {
-      Thumbs: false,
-      Toolbar: {
-        enabled: false,
-      },
-      on: {
-        init: () => {
-          const swiper = document.querySelector(".swiper").swiper;
-          swiper.autoplay.pause();
-        },
-        done: () => {
-          const swiper = document.querySelector(".swiper").swiper;
-          const fancybox = Fancybox.getInstance();
-          const index = fancybox.getSlide().index;
-          swiper.slideTo(index);
-          swiper.autoplay.pause();
-        },
-        destroy: () => {
-          const swiper = document.querySelector(".swiper").swiper;
-          swiper.autoplay.run();
-        },
-      },
-    });
-
-    return () => {
-      Fancybox.destroy();
-    };
-  }, []);
 
   return (
     <>
@@ -88,7 +52,7 @@ const Oscillation = () => {
 
         <div id="tranding">
           {/*  */}
-          <PhotoSwiper media={osiGallery} />
+          <CoverflowCarousel media={osiGallery} />
         </div>
 
         <div className="event-container">

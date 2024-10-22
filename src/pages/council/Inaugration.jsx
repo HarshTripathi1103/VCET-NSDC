@@ -7,18 +7,21 @@ import "./event.css";
 import Navbar from "./Nav";
 import Footer from "./Footer";
 import PhotoSwiper from "./EventSwiper";
+import CoverflowCarousel from "./CoverflowCarousel";
+
 
 const NSDCInauguration = () => {
   const InaugGallery = [
     { type: "video", src: "../img/events/inaugration/inaug_1.mp4" },
     { type: "image", src: "../img/events/inaugration/inaug_2.png" },
-    { type: "image", src: "../img/events/inaugration/inaug_2.png" },
-    { type: "image", src: "../img/events/inaugration/inaug_2.png" },
-    { type: "image", src: "../img/events/inaugration/inaug_2.png" },
-    { type: "image", src: "../img/events/inaugration/inaug_2.png" },
-    { type: "image", src: "../img/events/inaugration/inaug_2.png" },
-    { type: "image", src: "../img/events/inaugration/inaug_2.png" },
-    { type: "image", src: "../img/events/inaugration/inaug_2.png" },
+    { type: "image", src: "../img/events/inaugration/inaug_3.png" },
+    { type: "image", src: "../img/events/inaugration/inaug_4.png" },
+    { type: "image", src: "../img/events/inaugration/inaug_5.png" },
+    { type: "image", src: "../img/events/inaugration/inaug_6.png" },
+    { type: "image", src: "../img/events/inaugration/inaug_7.png" },
+    { type: "image", src: "../img/events/inaugration/inaug_8.png" },
+    { type: "image", src: "../img/events/inaugration/inaug_9.png" },
+    { type: "image", src: "../img/events/inaugration/inaug_10.png"},
   ];
 
   return (
@@ -48,7 +51,7 @@ const NSDCInauguration = () => {
         </h1>
 
         <div id="tranding">
-          <PhotoSwiper media={InaugGallery} />
+          <CoverflowCarousel media={InaugGallery} />
         </div>
 
         <div className="event-container">

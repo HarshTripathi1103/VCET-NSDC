@@ -86,14 +86,15 @@ const PhotoSwiper = ({ media }) => {
                     loadPrevNextAmount: 3,
                 }}
                 breakpoints={{
-                    320: { slidesPerView: 1, loop: true },
+                    320: { slidesPerView: 1, width:320},
                     640: { slidesPerView: 1, width: 640 },
                     768: { slidesPerView: 2, width: 768 },
                     1024: { slidesPerView: 3 },
                 }}
+
                 className='mySwipper'
             >
-                {media.map((item, index) => (
+                {...media.map((item,index) => (
                     <SwiperSlide key={index} className="swiper-slide">
                         <div className="main-slide">
                             {item.type === 'image' ? (
@@ -119,3 +120,6 @@ const PhotoSwiper = ({ media }) => {
 };
 
 export default PhotoSwiper;
+
+
+

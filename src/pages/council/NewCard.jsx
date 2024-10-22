@@ -20,6 +20,7 @@ import parthImage from "../../assets/images/15.png";
 import saloniImage from "../../assets/images/16.png";
 import sakshi2Image from "../../assets/images/17.png";
 import shreyaImage from "../../assets/images/18.png";
+import harshImage from "../../assets/images/core.png";
 import Navbar from "./Nav";
 import Footer from "./Footer";
 
@@ -174,6 +175,14 @@ function NewCard() {
       insta: "https://www.instagram.com/shreyeeahh?igsh=amRucjlmNTRsMGxo",
       linkedin: "https://www.linkedin.com/in/shreya-wankhede-880308260?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     },
+    {
+        image: harshImage,
+        title: "Harsh Tripathi",
+        subtitle: "Deputy Website Head",
+        email: "harsh.225267101@vcet.edu.in",
+        insta: "https://www.instagram.com/harsh_3pathi/",
+        linkedin: "https://www.linkedin.com/in/harsh-tripathi-h1103/",
+    }
     // Add more cards as needed
   ];
 

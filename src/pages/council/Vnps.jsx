@@ -16,6 +16,7 @@ import { Fancybox } from "@fancyapps/ui";
 import Navbar from "./Nav";
 import Footer from "./Footer";
 import PhotoSwiper from "./EventSwiper";
+import CoverflowCarousel from "./CoverflowCarousel";
 
 const VNPS = () => {
   const vnpsGallery = [
@@ -30,35 +31,35 @@ const VNPS = () => {
     { type: "image", src: "../img/events/vnps/vnps/vnps1 (9).jpg" },
     { type: "image", src: "../img/events/vnps/vnps/vnps1 (10).jpg" },
   ];
-  React.useEffect(() => {
-    Fancybox.bind("[data-fancybox]", {
-      Thumbs: false,
-      Toolbar: {
-        enabled: false,
-      },
-      on: {
-        init: () => {
-          const swiper = document.querySelector(".swiper").swiper;
-          swiper.autoplay.pause();
-        },
-        done: () => {
-          const swiper = document.querySelector(".swiper").swiper;
-          const fancybox = Fancybox.getInstance();
-          const index = fancybox.getSlide().index;
-          swiper.slideTo(index);
-          swiper.autoplay.pause();
-        },
-        destroy: () => {
-          const swiper = document.querySelector(".swiper").swiper;
-          swiper.autoplay.run();
-        },
-      },
-    });
+//   React.useEffect(() => {
+//     Fancybox.bind("[data-fancybox]", {
+//       Thumbs: false,
+//       Toolbar: {
+//         enabled: false,
+//       },
+//       on: {
+//         init: () => {
+//           const swiper = document.querySelector(".swiper").swiper;
+//           swiper.autoplay.pause();
+//         },
+//         done: () => {
+//           const swiper = document.querySelector(".swiper").swiper;
+//           const fancybox = Fancybox.getInstance();
+//           const index = fancybox.getSlide().index;
+//           swiper.slideTo(index);
+//           swiper.autoplay.pause();
+//         },
+//         destroy: () => {
+//           const swiper = document.querySelector(".swiper").swiper;
+//           swiper.autoplay.run();
+//         },
+//       },
+//     });
 
-    return () => {
-      Fancybox.destroy();
-    };
-  }, []);
+//     return () => {
+//       Fancybox.destroy();
+//     };
+//   }, []);
 
   return (
     <>
@@ -87,7 +88,7 @@ const VNPS = () => {
         </h1>
 
         <div id="tranding">
-          <PhotoSwiper media={vnpsGallery} />
+          <CoverflowCarousel media={vnpsGallery} />
         </div>
 
         <div className="event-container">

@@ -15,38 +15,29 @@ import "./event.css";
 import { Fancybox } from "@fancyapps/ui";
 import Navbar from "./Nav";
 import Footer from "./Footer";
+import CoverflowCarousel from "./CoverflowCarousel";
 
 const LOGOMaking = () => {
-  React.useEffect(() => {
-    Fancybox.bind("[data-fancybox]", {
-      Thumbs: false,
-      Toolbar: {
-        enabled: false,
-      },
-      on: {
-        init: () => {
-          const swiper = document.querySelector(".swiper").swiper;
-          swiper.autoplay.pause();
-        },
-        done: () => {
-          const swiper = document.querySelector(".swiper").swiper;
-          const fancybox = Fancybox.getInstance();
-          const index = fancybox.getSlide().index;
-          swiper.slideTo(index);
-          swiper.autoplay.pause();
-        },
-        destroy: () => {
-          const swiper = document.querySelector(".swiper").swiper;
-          swiper.autoplay.run();
-        },
-      },
-    });
+    const logoGallery = [
+        { type: "image", src: "../img/events/Logo/Logo_Making_1.jpg" },
+        { type: "image", src: "../img/events/Logo/Logo_Making_2.jpg" },
+        { type: "image", src: "../img/events/Logo/Logo_Making_3.jpg" },
+        { type: "image", src: "../img/events/Logo/Logo_Making_4.jpg" },
+        { type: "image", src: "../img/events/Logo/Logo_Making_5.jpg" },
+        { type: "image", src: "../img/events/Logo/Logo_Making_6.jpg" },
+        { type: "image", src: "../img/events/Logo/Logo_Making_7.jpg" },
+        { type: "image", src: "../img/events/Logo/Logo_Making_8.jpg" },
+        { type: "image", src: "../img/events/Logo/Logo_Making_9.jpg" },
+        { type: "image", src: "../img/events/Logo/Logo_Making_10.jpg" },
+        { type: "image", src: "../img/events/Logo/Logo_Making_11.jpg" },
+        { type: "image", src: "../img/events/Logo/Logo_Making_12.jpg" },
+        { type: "image", src: "../img/events/Logo/Logo_Making_13.jpg" },
+        { type: "image", src: "../img/events/Logo/Logo_Making_14.jpg" },
+        { type: "image", src: "../img/events/Logo/Logo_Making_15.jpg" },
+        { type: "image", src: "../img/events/Logo/Logo_Making_16.jpg" },
+        { type: "image", src: "../img/events/Logo/logo1_image.jpg" },
 
-    return () => {
-      Fancybox.destroy();
-    };
-  }, []);
-
+    ]
   return (
     <>
       <main>
@@ -69,170 +60,12 @@ const LOGOMaking = () => {
           <Navbar />
         </header>
 
-        <h1 className="text-center text-white text-decoration-underline p-5">
+        <h1 className="text-center text-white text-decoration-underline p-5 ">
           LOGO MAKING COMPETITION
         </h1>
 
         <div id="tranding">
-          <Swiper
-            modules={[Navigation, EffectCoverflow, Pagination, Autoplay, Zoom]}
-            className="tranding-slider"
-            spaceBetween={50}
-            slidesPerView={3}
-            navigation
-            loop={true}
-            effect={"coverflow"}
-            grabCursor={true}
-            centeredSlides={true}
-            coverflowEffect={{
-              rotate: 0,
-              stretch: 0,
-              depth: 100,
-              modifier: 2.5,
-            }}
-          >
-            <SwiperSlide className="tranding-slide">
-              <div className="tranding-slide-img">
-                <img
-                  alt="Tranding"
-                  loading="lazy"
-                  data-fancybox="images"
-                  src="../img/events/Logo/logo1_image.jpg"
-                />
-              </div>
-            </SwiperSlide>
-            {/* Add other slides here */}
-            <SwiperSlide className="tranding-slide">
-              <div className="tranding-slide-img">
-                <img
-                  data-fancybox="images"
-                  src="../img/events/Logo/Logo_Making_2.jpg"
-                  alt="Tranding"
-                  loading="lazy"
-                />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="tranding-slide">
-              <div className="tranding-slide-img">
-                <img
-                  data-fancybox="images"
-                  src="../img/events/Logo/Logo_Making_3.jpg"
-                  alt="Tranding"
-                  loading="lazy"
-                />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="tranding-slide">
-              <div className="tranding-slide-img">
-                <img
-                  data-fancybox="images"
-                  src="../img/events/Logo/Logo_Making_4.jpg"
-                  alt="Tranding"
-                  loading="lazy"
-                />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="tranding-slide">
-              <div className="tranding-slide-img">
-                <img
-                  data-fancybox="images"
-                  src="../img/events/Logo/Logo_Making_5.jpg"
-                  alt="Tranding"
-                  loading="lazy"
-                />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="tranding-slide">
-              <div className="tranding-slide-img">
-                <img
-                  data-fancybox="images"
-                  src="../img/events/Logo/Logo_Making_6.jpg"
-                  alt="Tranding"
-                  loading="lazy"
-                />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="tranding-slide">
-              <div className="tranding-slide-img">
-                <img
-                  data-fancybox="images"
-                  src="../img/events/Logo/Logo_Making_7.jpg"
-                  alt="Tranding"
-                  loading="lazy"
-                />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="tranding-slide">
-              <div className="tranding-slide-img">
-                <img
-                  data-fancybox="images"
-                  src="../img/events/Logo/Logo_Making_8.jpg"
-                  alt="Tranding"
-                  loading="lazy"
-                />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="tranding-slide">
-              <div className="tranding-slide-img">
-                <img
-                  data-fancybox="images"
-                  src="../img/events/Logo/Logo_Making_9.jpg"
-                  alt="Tranding"
-                  loading="lazy"
-                />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="tranding-slide">
-              <div className="tranding-slide-img">
-                <img
-                  data-fancybox="images"
-                  src="../img/events/Logo/Logo_Making_10.jpg"
-                  alt="Tranding"
-                  loading="lazy"
-                />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="tranding-slide">
-              <div className="tranding-slide-img">
-                <img
-                  data-fancybox="images"
-                  src="../img/events/Logo/Logo_Making_11.jpg"
-                  alt="Tranding"
-                  loading="lazy"
-                />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="tranding-slide">
-              <div className="tranding-slide-img">
-                <img
-                  data-fancybox="images"
-                  src="../img/events/Logo/Logo_Making_12.jpg"
-                  alt="Tranding"
-                  loading="lazy"
-                />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="tranding-slide">
-              <div className="tranding-slide-img">
-                <img
-                  data-fancybox="images"
-                  src="../img/events/Logo/Logo_Making_13.jpg"
-                  alt="Tranding"
-                  loading="lazy"
-                />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="tranding-slide">
-              <div className="tranding-slide-img">
-                <img
-                  data-fancybox="images"
-                  src="../img/events/Logo/Logo_Making_14.jpg"
-                  alt="Tranding"
-                  loading="lazy"
-                />
-              </div>
-            </SwiperSlide>
-          </Swiper>
+          <CoverflowCarousel media={logoGallery}/>
         </div>
 
         <div className="event-container">

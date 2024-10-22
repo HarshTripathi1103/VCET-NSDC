@@ -49,7 +49,7 @@ const IEvents = () => {
       {/* Main content */}
       <main>
         <video
-          id="bgVideo"
+          id="bgVideo1"
           style={{ pointerEvents: "none" }}
           preload="true"
           autoPlay
@@ -72,7 +72,7 @@ const IEvents = () => {
           </h1>
           <div className="container p-3">
             {/* Start */}
-            <div className="eventsSection row align-items-center event-block no-gutters margin-40px-bottom widgets-dark typo-light bg-gradient">
+            <div className="eventsSection  row align-items-center event-block no-gutters margin-40px-bottom widgets-dark typo-light bg-gradient">
               <div className="col-lg-5 col-sm-12" style={{ paddingLeft: 0 }}>
                 <div className="position-relative">
                   <img
